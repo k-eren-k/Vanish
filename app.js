@@ -1,11 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
-const querystring =require("querystring");
+// 'querystring' modülü kaldırıldı, yerine URLSearchParams kullanılacak.
 const path = require("path");
 
 const app = express();
-// const port = 3000; // Vercel port'u otomatik olarak yönetir, bu satıra gerek yok.
 
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
@@ -25,13 +24,15 @@ const getNewAccessToken = async () => {
         return;
     }
     try {
+        // querystring.stringify yerine new URLSearchParams() kullanıldı.
+        const params = new URLSearchParams();
+        params.append("grant_type", "refresh_token");
+        params.append("refresh_token", REFRESH_TOKEN);
+
         const response = await axios({
             method: "post",
             url: "https://accounts.spotify.com/api/token",
-            data: querystring.stringify({
-                grant_type: "refresh_token",
-                refresh_token: REFRESH_TOKEN,
-            }),
+            data: params,
             headers: {
                 "content-type": "application/x-www-form-urlencoded",
                 Authorization: "Basic " + Buffer.from(CLIENT_ID + ":" + CLIENT_SECRET).toString("base64"),
@@ -117,7 +118,12 @@ app.get("/api/github-repos", async (req, res) => {
 
 app.get("/api/npm-packages", async (req, res) => {
     const NPM_USERNAME = "dis.dev";
-    const SEARCH_API_URL = `https://registry.npmjs.org/-/v1/search?text=maintainer:${NPM_USERNAME}&size=250`;
+    // querystring yerine URLSearchParams kullanılarak URL oluşturuldu.
+    const params = new URLSearchParams({
+        text: `maintainer:${NPM_USERNAME}`,
+        size: 250
+    });
+    const SEARCH_API_URL = `https://registry.npmjs.org/-/v1/search?${params.toString()}`;
     try {
         const searchResponse = await axios.get(SEARCH_API_URL);
         const basePackages = searchResponse.data.objects.map((pkg) => pkg.package);
@@ -136,7 +142,4 @@ app.get("/api/npm-packages", async (req, res) => {
     }
 });
 
-// app.listen(...) fonksiyonunu kaldırıyoruz.
-// Vercel'in uygulamayı bir sunucusuz fonksiyon olarak çalıştırması için
-// app nesnesini dışa aktarıyoruz.
 module.exports = app;
