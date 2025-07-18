@@ -13,10 +13,10 @@ const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
-app.use(express.static(path.join(__dirname, "public")));
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.set("view engine", "ejs");  
+  app.set("views", path.join(__dirname, "views"));
 
+  app.use(express.static(path.join(__dirname, "public")));;
 let accessToken = null;
 
 const getNewAccessToken = async () => {
