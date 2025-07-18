@@ -1,11 +1,11 @@
 require("dotenv").config();
 const express = require("express");
 const axios = require("axios");
-const querystring = require("querystring");
+const querystring =require("querystring");
 const path = require("path");
 
 const app = express();
-const port = 3000;
+// const port = 3000; // Vercel port'u otomatik olarak yönetir, bu satıra gerek yok.
 
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
@@ -136,6 +136,7 @@ app.get("/api/npm-packages", async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Sunucu http://localhost:${port} adresinde kalıcı modda çalışıyor`);
-});
+// app.listen(...) fonksiyonunu kaldırıyoruz.
+// Vercel'in uygulamayı bir sunucusuz fonksiyon olarak çalıştırması için
+// app nesnesini dışa aktarıyoruz.
+module.exports = app;
