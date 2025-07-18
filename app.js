@@ -43,16 +43,27 @@ const getNewAccessToken = async () => {
         
     } catch (error) {
         console.error("Access Token yenilenirken hata oluştu:", error.response ? error.response.data : error.message);
+        accessToken = null; // Hata durumunda token'ı sıfırla ki tekrar denensin
     }
 };
 
+// Sunucu başladığında ilk token'ı al ve her 55 dakikada bir yenile
 getNewAccessToken();
 setInterval(getNewAccessToken, 55 * 60 * 1000);
 
-const ensureToken = (req, res, next) => {
+// Sunucusuz ortamlar için daha sağlam hale getirilmiş token kontrolü
+const ensureToken = async (req, res, next) => {
+    // Eğer token yoksa (soğuk başlatma veya hata sonrası)
     if (!accessToken) {
-        return res.status(503).json({ error: "Spotify token is not available yet. Please try again in a moment." });
+        // Almayı dene ve bekle
+        await getNewAccessToken();
     }
+    
+    // Tekrar kontrol et, hala yoksa hata döndür
+    if (!accessToken) {
+        return res.status(503).json({ error: "Spotify token could not be retrieved. Please check server logs." });
+    }
+    
     next();
 };
 
@@ -112,17 +123,14 @@ app.get("/api/github-repos", async (req, res) => {
         const response = await axios.get(API_URL, { headers: { Authorization: `token ${GITHUB_TOKEN}` } });
         res.json(response.data.filter((repo) => !repo.fork));
     } catch (error) {
+        console.error("GitHub API Hatası:", error.message); // Hata ayıklama için log eklendi
         res.status(500).json({ message: "Failed to fetch from GitHub." });
     }
 });
 
 app.get("/api/npm-packages", async (req, res) => {
     const NPM_USERNAME = "dis.dev";
-    // querystring yerine URLSearchParams kullanılarak URL oluşturuldu.
-    const params = new URLSearchParams({
-        text: `maintainer:${NPM_USERNAME}`,
-        size: 250
-    });
+    const params = new URLSearchParams({ text: `maintainer:${NPM_USERNAME}`, size: 250 });
     const SEARCH_API_URL = `https://registry.npmjs.org/-/v1/search?${params.toString()}`;
     try {
         const searchResponse = await axios.get(SEARCH_API_URL);
@@ -138,6 +146,7 @@ app.get("/api/npm-packages", async (req, res) => {
         const packagesWithDownloads = await Promise.all(downloadPromises);
         res.json(packagesWithDownloads);
     } catch (error) {
+        console.error("NPM API Hatası:", error.message); // Hata ayıklama için log eklendi
         res.status(500).json({ message: "Failed to fetch data from NPM." });
     }
 });
