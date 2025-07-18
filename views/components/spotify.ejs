@@ -1,0 +1,47 @@
+<section class="spotify-section" id="spotify">
+  <div class="container text-center">
+    <div class="section-header">
+      <h2>My Music Room</h2>
+      <p>
+        The melodies that power my ideas and projects. Here's what I'm listening
+        to right now.
+      </p>
+    </div>
+
+    <article
+      class="now-playing-wrapper"
+      id="now-playing-container"
+      style="display: none"
+    >
+      <div class="spotify-now-playing modern">
+        <div class="album-art-wrapper">
+          <img
+            id="album-art"
+            src="https://placehold.co/120x120/0c0c0c/7B4BFF?text=Loading"
+            alt="Album art for the currently playing song"
+          />
+        </div>
+        <div class="song-info">
+          <span class="now-playing-label">NOW PLAYING</span>
+          <a id="song-url" href="#" target="_blank" rel="noopener noreferrer">
+            <h3 id="song-title" class="song-title">Loading...</h3>
+          </a>
+          <p id="song-artist" class="song-artist">Loading...</p>
+          <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <div
+      id="not-playing-message"
+      style="display: none; color: #a0a0a0; margin: 2rem 0"
+    >
+      Currently either unavailable or resting
+    </div>
+
+    <ol class="spotify-history-list" id="history-list">
+      <!-- Spotify history will be loaded here by JavaScript -->
+    </ol>
+  </div>
+</section>

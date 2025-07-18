@@ -1,0 +1,309 @@
+.spotify-section {
+  margin-bottom: 120px;
+  padding-bottom: 170px;
+  margin-top: 120px;
+  border-bottom: 1px solid #27272a;
+}
+
+.section-header h2 {
+  margin-bottom: 12px;
+}
+
+.spotify-section .section-header {
+  margin-bottom: 4rem;
+}
+
+.spotify-section .spotify-icon {
+  font-size: 2.5rem;
+  color: #1db954; 
+  margin-bottom: 1rem;
+}
+
+.spotify-section .section-header h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+}
+
+.spotify-section .section-header p {
+  font-size: 1.1rem;
+  color: #63636b;
+  max-width: 550px;
+  margin: 0.5rem auto 0 auto;
+  line-height: 1.6;
+}
+
+.now-playing-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  perspective: 1200px;
+}
+
+.spotify-now-playing.modern {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; 
+  background: linear-gradient(145deg, rgba(22, 22, 26, 0.377), #10101323);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); 
+  position: relative;
+  z-index: 1; 
+  overflow: hidden;
+}
+
+.spotify-now-playing.modern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--glow-color) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  filter: blur(40px);
+  transition: opacity 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.spotify-now-playing.modern:hover {
+  transform: translateY(-8px) scale(1.03) rotateX(5deg); 
+  border-color: rgba(123, 75, 255, 0.5);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.801);
+}
+
+.spotify-now-playing.modern:hover::before {
+  opacity: 0.3; 
+}
+
+.album-art-wrapper {
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.spotify-now-playing.modern:hover .album-art-wrapper {
+  transform: scale(1.1);
+}
+
+.album-art-wrapper img {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.now-playing-label {
+  font-family: "Geist Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--primary-purple);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.song-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.spotify-now-playing.modern:hover .song-title {
+  color: #fff; 
+}
+
+.song-artist {
+  font-size: 1rem;
+  color: #a0a0a0;
+  margin: 0.25rem 0 0 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: #27272a;
+  border-radius: 2px;
+  margin-top: 1.25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  width: 40%; 
+  height: 100%;
+  background: var(--primary-purple);
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 0 10px var(--glow-color); 
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.spotify-history-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  position: relative; 
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s ease;
+}
+
+.history-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--primary-purple);
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.history-item:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.history-item:hover::after {
+  width: 100%;
+}
+
+.track-number {
+  font-family: "Geist Mono", monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #63636b;
+  transition: color 0.3s ease;
+}
+
+.history-item:hover .track-number {
+  color: var(--primary-purple);
+}
+
+.track-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.track-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.track-artist {
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+.play-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) scale(0.8);
+  opacity: 0;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: var(--primary-purple);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.history-item:hover .play-icon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.album-art-popup {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(0.9);
+  opacity: 0; 
+  z-index: 10;
+  pointer-events: none; 
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.album-art-popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.history-item:nth-child(odd) .album-art-popup {
+  right: 100%;
+  margin-right: 20px;
+  transform-origin: center right; 
+}
+
+.history-item:nth-child(even) .album-art-popup {
+  left: 100%; 
+  margin-left: 20px;
+  transform-origin: center left; 
+}
+
+.history-item:hover .album-art-popup {
+  opacity: 1;
+  transform: translateY(-50%) scale(1); 
+  pointer-events: auto;
+}
+

@@ -1,0 +1,39 @@
+.site-footer-final {
+    padding: 3rem 0;
+}
+
+.site-footer-final .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.site-footer-final p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.footer-socials a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: var(--primary-purple);
+    transform: translateY(-3px);
+}
+
+.footer-socials i {
+    font-size: 1.25rem;
+}
+

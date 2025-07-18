@@ -1,0 +1,155 @@
+.github-projects-section {
+    margin-bottom: 125px;
+    padding-bottom: 130px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.github-projects-section .section-header {
+    margin-bottom: 4rem;
+}
+
+.github-projects-section .section-header h2 {
+    font-size: 2.3rem;
+    font-weight: 800;
+}
+
+.github-projects-section .section-header p {
+    font-size: 1.1rem;
+    color: #63636b;
+    max-width: 600px;
+    margin: 0.5rem auto 0 auto;
+    line-height: 1.6;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1.1rem;
+    text-align: left;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.project-card {
+    background: linear-gradient(145deg, rgba(22, 22, 26, 0.377), #10101323);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    max-height: 150px;
+    min-height: 150px;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250%;
+    /* Daha geniş bir parıltı */
+    height: 250%;
+    background: radial-gradient(circle, var(--glow-color) 0%, transparent 35%);
+    opacity: 0;
+    filter: blur(70px);
+    transition: opacity 0.6s ease-in-out;
+    z-index: -1;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: rgba(123, 75, 255, 0.6);
+    box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.6);
+}
+
+.project-card:hover::before {
+    opacity: 0.18;
+}
+
+.project-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: -10px;
+}
+
+.project-card:hover .fa-github-alt {
+    color: var(--text-primary);
+}
+
+.project-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fffbf0;
+}
+
+.project-card-description {
+    font-size: 15px;
+    margin-top: -10px;
+    color: #979797;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.project-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: auto;
+}
+
+.project-card-language .language-color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 4rem;
+    font-size: 15px;
+}
+
+.pagination-controls .btn {
+    padding: 0.75rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    user-select: none;
+}
+
+.pagination-controls .btn:disabled {
+    background-color: transparent;
+    border-color: var(--border-color);
+    color: #63636b;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.pagination-controls .btn:disabled:hover {
+    background-color: transparent;
+    border-color: var(--border-color);
+}
+
+.project-card-stats {
+    display: flex;
+    gap: 10px;
+}
+
+#page-info {
+    font-family: "Geist Mono", monospace;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+

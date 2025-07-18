@@ -1,0 +1,163 @@
+/* /public/css/projects.css */
+
+/* Using root variables from your main style.css for consistency */
+:root {
+    --background-color: #0c0c0c;
+    --primary-purple: #7B4BFF;
+    --text-primary: #FFFFFF;
+    --text-secondary: #a0a0a0;
+    --border-color: #27272A;
+    --background-deep: #121212;
+}
+
+
+/* Projects Page Header Styling */
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.header-text p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.header-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: right;
+    min-width: 200px;
+}
+
+.stat-item .stat-number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+}
+
+.stat-item .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Project List Styling */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-item {
+    display: flex;
+    max-height: 328.55px;
+    min-height: 328.55px;
+    padding-left: 25px;
+    padding-right: 25px;
+    cursor: pointer;
+    border: 1px solid #27272A;
+    align-items: center;
+    transition: all 0.3s ease   ;
+    background: linear-gradient(145deg, rgba(22, 22, 26, 0.377), #10101323);
+    gap: 3rem;
+}
+
+.project-item:hover{
+    border: 1px solid #7B4BFF;
+    transform: scale(1.010);
+}
+
+.project-image {
+    flex: 1;
+    object-fit: cover;
+    max-height: 274.56px;
+    min-height: 274.56px;
+    height: 274.56px;
+    max-width: 300px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-details {
+    flex: 1;
+    min-height: 328.55px;
+    flex-direction: column; /* Correct for vertical distribution */
+    justify-content: space-between; /* Correct for spacing items along the main axis (vertical in this case) */
+    max-height: 328.55px;
+}
+
+.project-number {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.project-details h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.project-details p {
+    color: var(--text-secondary);
+    margin-top: -20px;
+    font-size: 15PX;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    gap: 0.35rem;
+}
+
+.project-tags span {
+    background-color: var(--background-deep);
+    border: 1px solid var(--border-color);
+    color: #c0c0c0b2;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.project-tags span:hover {
+    color: var(--text-primary);
+    border-color: var(--primary-purple);
+}
+
+.project-demo-btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem; /* Slightly smaller button */
+}
+

@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+}
+
+:root {
+    --background-color: #0c0c0c;
+    --primary-purple: #7b4bff;
+    --secondary-purple: #895bf2;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a021;
+    --border-color: #27272a;
+    --background-deep: #121212;
+    --glow-color: rgba(123, 75, 255, 0.5);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-color);
+    background-image: radial-gradient(ellipse 20% 500px at 50% 0%,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 100%);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.page-container {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.site-main {
+    padding: 7rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.customer-badge {
+    display: inline-flex;
+    align-items: center;
+    color: #b8b8b8;
+    gap: 0.75rem;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    border-radius: 999px;
+    background-color: var(--background-deep);
+    margin-bottom: 2rem;
+    box-shadow: 0 0 15px rgba(123, 75, 255, 0.1);
+}
+
+.customer-badge span {
+    font-size: 0.9rem;
+    color: #f4f4f4;
+}
+
+.customer-avatars {
+    display: flex;
+}
+
+.customer-avatars img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-left: -10px;
+    border: 2px solid var(--background-deep);
+}
+
+.customer-avatars img:first-child {
+    margin-left: 0;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #f4f4f4;
+    max-width: 900px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #63636b;
+    margin-bottom: 40px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn:hover {}
+
+.btn-primary {
+    background: linear-gradient(90deg,
+            var(--secondary-purple),
+            var(--primary-purple));
+    color: var(--text-primary);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 25px var(--glow-color);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.007);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.034);
+    border-color: var(--text-secondary);
+}
+
+.site-footer {
+    padding: 6rem 0;
+}
+
+.footer-title {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
+.tech-stack-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.tech-item {
+    background-color: var(--background-deep);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem 2.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-5px) scale(1.05);
+    color: var(--text-primary);
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+.tech-item .fa-bolt {
+    color: #facc15;
+}
+
+.tech-item .fa-leaf {
+    color: #4ade80;
+}
+
+.tech-item .fa-cloud {
+    color: #60a5fa;
+}
+
+.tech-item .fa-map-pin {
+    color: #f87171;
+}

@@ -1,0 +1,141 @@
+.skills-detailed-section {
+    padding-bottom: 130px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skills-detailed-section .section-header {
+    margin-bottom: 4rem;
+}
+
+.skill-category {
+    margin-bottom: 4rem;
+}
+
+.skill-category-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skills-detailed-section .section-header h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.skills-detailed-section .section-header p {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    margin-top: -10px;
+    max-width: 600px;
+    margin: 0.5rem auto 0 auto;
+    line-height: 1.6;
+}
+
+.skill-category-header i {
+    font-size: 1.5rem;
+    color: var(--primary-purple);
+    background-color: rgba(123, 75, 255, 0.1);
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.skill-category-header h3 {
+    font-size: 1.65rem;
+    font-weight: 600;
+    margin-bottom: -5px;
+    color: var(--text-primary);
+    margin: 0 0 0px 0;
+}
+
+.skill-category-header p {
+    font-size: 0.9rem;
+    margin-top: -50px;
+    color: #a0a0a0;
+    margin: 0;
+}
+
+.skills-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.skill-card-detailed {
+    background: linear-gradient(145deg, rgba(22, 22, 26, 0.377), #10101323);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.skill-card-detailed:hover {
+    transform: translateY(-5px);
+}
+
+.skills-detailed-grid.frontend .skill-card-detailed:hover {
+    border-color: rgba(96, 165, 250, 0.329);
+}
+
+.skills-detailed-grid.backend .skill-card-detailed:hover {
+    border-color: rgba(74, 222, 128, 0.329);
+}
+
+.skills-detailed-grid.tools .skill-card-detailed:hover {
+    border-color: rgba(251, 146, 60, 0.329);
+}
+
+.skill-card-detailed h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #f0f0f0;
+    margin: 0 0 1.5rem 0;
+}
+
+.progress-bar-container {
+    width: 100%;
+}
+
+.progress-bar-labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #a0a0a0;
+    font-family: "Geist Mono", monospace;
+}
+
+.progress-bar-wrapper {
+    height: 3.4px;
+    background-color: #27272a;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 0px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.progress-bar-fill.frontend {
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    box-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
+}
+
+.progress-bar-fill.backend {
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+    box-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
+}
+
+.progress-bar-fill.tools {
+    background: linear-gradient(90deg, #f97316, #fb923c);
+    box-shadow: 0 0 12px rgba(251, 146, 60, 0.4);
+}
+

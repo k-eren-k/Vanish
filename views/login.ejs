@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify ile Giriş Yap</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .login-container {
+            padding: 3rem;
+            background-color: var(--background-deep);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+        }
+        .btn-spotify {
+            background-color: #1DB954;
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 500px;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.2s ease;
+        }
+        .btn-spotify:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Portfolyomu Görüntüle</h1>
+        <p style="color: #a0a0a0; margin-bottom: 2rem;">Müzik zevkimi görmek için lütfen Spotify hesabınızla giriş yapın.</p>
+        <a href="/login" class="btn-spotify">
+            <i class="fab fa-spotify"></i>
+            <span>Spotify ile Giriş Yap</span>
+        </a>
+    </div>
+</body>
+</html>
