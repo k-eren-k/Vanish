@@ -6,17 +6,17 @@ const path = require("path");
 
 const app = express();
 const port = 3000;
-const HOST = "127.0.0.1";
 
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
-app.set("view engine", "ejs");  
-  app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
-  app.use(express.static(path.join(__dirname, "public")));;
+app.use(express.static(path.join(__dirname, "public")));
+
 let accessToken = null;
 
 const getNewAccessToken = async () => {
@@ -137,5 +137,5 @@ app.get("/api/npm-packages", async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Sunucu http://${HOST}:${port} adresinde kalıcı modda çalışıyor`);
+    console.log(`Sunucu http://localhost:${port} adresinde kalıcı modda çalışıyor`);
 });
